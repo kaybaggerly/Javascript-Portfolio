@@ -1,5 +1,5 @@
-import { films } from '../assets/films.js'
-import { people } from '../assets/people.js'
+import { films } from './films.js'
+import { people } from './people.js'
 
 let mainArea = document.querySelector('main')
 
