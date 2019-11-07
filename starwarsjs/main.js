@@ -1,5 +1,5 @@
 import { films } from './starwarsjs/films.js'
-import { people } from './starwarsjs/people.js'
+import { people } from './starwarsjs/people/.js'
 
 let mainArea = document.querySelector('main')
 
