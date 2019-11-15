@@ -3,9 +3,9 @@ import { people } from '/starwarsjs/people.js'
 
 let mainArea = document.querySelector('main')
 
+const allChar = people.filter(person =>person.gender == 'male' | 'female' & person.gender !== 'male' & person.gender !== 'female')
 const maleCharacters =  people.filter(person => person.gender === 'male')
 const femaleCharacters =  people.filter(person => person.gender === 'female')
-const otherCharacters = people.filter(person => person.gender !== 'female' & person.gender !== 'male')
 
 
 /* films.forEach(function(film) {
@@ -42,6 +42,8 @@ people.forEach((person) => {
 
     mainArea.appendChild(personDiv)
 })
+
+
 
 function getCharNumber(charURL) {
     let end = charURL.lastIndexOf('/')
@@ -109,6 +111,7 @@ allChar.forEach(character => {
             return oneDiv.firstChild.textContent === character.name
         })
         matchedDiv.setAttribute('style', 'display: block')
+        matchedDiv.classList.add('animated', 'fadeIn')
 })
 maleChar.forEach(character =>{
     let matchedDiv = allDivs.find((oneDiv)=>{
@@ -116,7 +119,7 @@ maleChar.forEach(character =>{
     })
     
     matchedDiv.setAttribute('style', 'display:block',)
-})
-})
+})})
+
 
 })
