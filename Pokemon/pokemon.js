@@ -1,5 +1,5 @@
 /* class Pokemon {
-    constructor(id, name) {
+    constructor(id, Athena) {
       this.id = id;
       this.name = name;
       
@@ -60,7 +60,7 @@ async function getAPIData (url) {
         pic.setAttribute('class', 'picDivs')
         picContainer.setAttribute('class', 'containerDivs')
     
-        name.textContent = `${single_pokemon.name} height: ${single_pokemon.height}`
+        name.textContent = `${single_pokemon.name}`
      
         pic.src = `../assets/images/${pokeNum}.png`
      
@@ -103,10 +103,18 @@ async function getAPIData (url) {
     function fillCardBack(pokeBack, data) {
         let pokeOrder = document.createElement('p')
         let pokeHP = document.createElement('p')
+        let pokeHeight = document.createElement('p')
+        let pokeNum = document.createElement('p')
+        let pokeType = document.createElement ('p')
         pokeOrder.textContent = data.order 
+        pokeHeight.textContent = data.Height
         pokeHP.textContent = data.stats[0].base_stat
-        pokeBack.appendChild(pokeOrder)
+        pokeNum.textContent = data.order
+        pokeType.textContent = data.type
+        pokeBack.appendChild(pokeType)
         pokeBack.appendChild(pokeHP)
+        pokeBack.appendChild(pokeHeight)
+        pokeBack.appendChild(pokeNum)
     }
     
     

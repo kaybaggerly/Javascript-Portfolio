@@ -9,14 +9,28 @@ main {
 }
 
 body {
-  background: white;
+  background:#68A05F;
+  
 }
 
 h1 {
   display: flex;
   justify-content: center;
-  margin: auto;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  Height: 605px;
+  overflow: hidden;
 }
+
+.container h2 {
+  position: absolute;
+}
+
+.containter h3 {
+  position: absolute;
+}
+
 
 .pokeDiv {
   display: flex;
@@ -36,10 +50,6 @@ width: 100%;
 align-items: center;
 }
 
-
-.test{
-color: blue;
-}
 
 .charDivs {
 display: flex;
@@ -82,11 +92,11 @@ backface-visibility: hidden;
 }
 
 .card__face--front {
-background: beige; 
+background: url("../assets/images/pokemon\ grass.png")
 }
 
 .card__face--back {
-background: rgb(237, 237, 248);
+background: url("../assets/images/pokemon\ grass.png");
 transform: rotateY(180deg);
 }
 
