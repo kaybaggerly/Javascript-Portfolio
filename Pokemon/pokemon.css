@@ -25,10 +25,16 @@ h1 {
 
 .container h2 {
   position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.containter h3 {
+.container h3 {
   position: absolute;
+  top: 0;
+  left: 0;
+  padding: 40px;
+  text-align: left;
 }
 
 
