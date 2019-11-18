@@ -106,14 +106,14 @@ mainHeader.appendChild(allCharButton)
 
 allCharButton.addEventListener('click', ()=>{
 allChar.forEach(character => {
-    femaleChar.forEach(character => {
+    femaleCharacters.forEach(character => {
         let matchedDiv = allDivs.find((oneDiv)=> {
             return oneDiv.firstChild.textContent === character.name
         })
         matchedDiv.setAttribute('style', 'display: block')
         matchedDiv.classList.add('animated', 'fadeIn')
 })
-maleChar.forEach(character =>{
+maleCharacters.forEach(character =>{
     let matchedDiv = allDivs.find((oneDiv)=>{
         return oneDiv.firstChild.textContent === character.name
     })
