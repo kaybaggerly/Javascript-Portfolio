@@ -59,6 +59,31 @@ const allDivs =  Array.from(document.querySelectorAll('div'));
 
 const mainHeader = document.querySelector('header')
 
+//all character button
+let allCharButton = document.createElement('button')
+allCharButton.textContent = 'All Characters'
+mainHeader.appendChild(allCharButton)
+
+allCharButton.addEventListener('click', ()=>{
+allChar.forEach(character => {
+    femaleCharacters.forEach(character => {
+        let matchedDiv = allDivs.find((oneDiv)=> {
+            return oneDiv.firstChild.textContent === character.name
+        })
+        matchedDiv.setAttribute('style', 'display: block')
+        matchedDiv.classList.add('animated', 'fadeIn')
+})
+maleCharacters.forEach(character =>{
+    let matchedDiv = allDivs.find((oneDiv)=>{
+        return oneDiv.firstChild.textContent === character.name
+    })
+    
+    matchedDiv.setAttribute('style', 'display:block',)
+})})
+
+
+})
+
 //male button
 let maleButton = document.createElement ('button')
 maleButton.textContent ='Male Characters'
@@ -99,27 +124,3 @@ femaleButton.addEventListener('click', () => {
     })
 })
 
-//all character button
-let allCharButton = document.createElement('button')
-allCharButton.textContent = 'All Characters'
-mainHeader.appendChild(allCharButton)
-
-allCharButton.addEventListener('click', ()=>{
-allChar.forEach(character => {
-    femaleCharacters.forEach(character => {
-        let matchedDiv = allDivs.find((oneDiv)=> {
-            return oneDiv.firstChild.textContent === character.name
-        })
-        matchedDiv.setAttribute('style', 'display: block')
-        matchedDiv.classList.add('animated', 'fadeIn')
-})
-maleCharacters.forEach(character =>{
-    let matchedDiv = allDivs.find((oneDiv)=>{
-        return oneDiv.firstChild.textContent === character.name
-    })
-    
-    matchedDiv.setAttribute('style', 'display:block',)
-})})
-
-
-})

@@ -19,22 +19,65 @@ h1 {
   position: relative;
   padding: 0;
   margin: 0;
-  Height: 605px;
+  Height: 600px;
   overflow: hidden;
 }
 
-.container h2 {
-  position: absolute;
-  top: 0;
-  left: 0;
+
+.container {
+  background-color: whitesmoke;
+  padding: 10px ;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: lightslategray, 50%;
+
 }
 
-.container h3 {
+ h2 {
   position: absolute;
   top: 0;
-  left: 0;
-  padding: 40px;
-  text-align: left;
+  left: 20px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 50px;
+  color: white;
+  outline-color: black;
+  margin: 30px;
+  vertical-align: top;
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
+
+
+#newCard {
+  width: 220px;
+  height: 75px;
+  background-color: #68A05F;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 130px;
+  margin: 100px;
+  display: inline-block;
+  vertical-align: top;
+  border: black;
+  border-radius: 8px;
+  color: whitesmoke;
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+    1px 1px 0 #000;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-style: solid;
+}
+
+
+.button {
+  border: black;
 }
 
 

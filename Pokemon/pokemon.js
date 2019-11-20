@@ -1,17 +1,36 @@
-/* class Pokemon {
-    constructor(id, Athena) {
-      this.id = id;
-      this.name = name;
+  (async function() {
+    let data = await getAPIData('https://pokeapi.co/api/v2/pokemon/');
+    let pokemonData = [];
+    for (const pokemon in data.result) {
+        pokemonData.push(getAPIData(pokemon.url));
+    }
+    await Promise.all(pokemonData);
+    populateDOM(newCard)
+});
+
+class Pokemon {
+    constructor(id, name) {
+      this.id = id
+      this.name = name
       
     }
    }
   
-  const Athena = new Pokemon(800, 'Athena');
+  const NewPoke = new Pokemon(800,'NewPoke');
   
-  const newButton = document.querySelector('#newCard')
-  newButton.addEventListener('click', function() {
-    populateDOM(Athena)
-  }) */
+  const newButton = document.querySelector('#newCard');
+  newButton.addEventListener("click", function() {
+      let pokeId = prompt("Please enter a Pokemon ID");
+      console.log(typeof pokeId);
+      if (pokeId > 0 && pokeId <= 807) {
+        getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
+      .then(result => {
+      populateDOM(result);
+      });
+    } else {
+        alert('There are no Pokemon with that ID. Choose another one.');
+    }
+  }) 
 
 
 async function getAPIData (url) {
@@ -62,7 +81,9 @@ async function getAPIData (url) {
     
         name.textContent = `${single_pokemon.name}`
      
-        pic.src = `../assets/images/${pokeNum}.png`
+       // pic.src = `../assets/images/${pokeNum}.png`
+       pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`;
+
      
         pokeFront.appendChild(picContainer)
         pokeFront.appendChild(name)
@@ -102,20 +123,16 @@ async function getAPIData (url) {
     
     function fillCardBack(pokeBack, data) {
         let pokeOrder = document.createElement('p')
-        let pokeHP = document.createElement('p')
-        let pokeHeight = document.createElement('p')
-        let pokeNum = document.createElement('p')
-        let pokeType = document.createElement ('p')
-        pokeOrder.textContent = data.order 
-        pokeHeight.textContent = data.Height
-        pokeHP.textContent = data.stats[0].base_stat
-        pokeNum.textContent = data.order
-        pokeType.textContent = data.type
-        pokeBack.appendChild(pokeType)
-        pokeBack.appendChild(pokeHP)
-        pokeBack.appendChild(pokeHeight)
-        pokeBack.appendChild(pokeNum)
+        let pokeWeight = document.createElement('p')
+        let pokeHeight = document.createElement ('p')
+        pokeOrder.textContent = `Number ${data.order}`
+        pokeWeight.textContent = `Weight ${data.weight}`
+        pokeHeight.textContent = `Height ${data.height}`
+        pokeBack.appendChild(pokeOrder)
+        pokeBack.appendChild(pokeWeight)
+        pokeBack.appendChild(pokeHeight) 
     }
+    
     
     
       /*  let end = charURL.lastIndexOf('/')
