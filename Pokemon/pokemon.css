@@ -1,3 +1,8 @@
+*{
+  margin: 0px;
+}
+
+  
 main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -7,6 +12,7 @@ main {
   margin: 0 auto;
   margin-bottom: 6rem;
 }
+
 
 body {
   background:#68A05F;
@@ -22,6 +28,30 @@ h1 {
   Height: 600px;
   overflow: hidden;
 }
+
+#newCard {
+  width: 220px;
+  height: 75px;
+  background-color: #68A05F;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 130px;
+  margin: 100px;
+  display: inline-block;
+  vertical-align: top;
+  border: black;
+  border-radius: 8px;
+  color: whitesmoke;
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+    1px 1px 0 #000;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-style: solid;
+}
+
 
 
 .container {
@@ -52,28 +82,7 @@ h1 {
 
 
 
-#newCard {
-  width: 220px;
-  height: 75px;
-  background-color: #68A05F;
-  font-size: 1.5rem;
-  position: absolute;
-  top: 0;
-  left: 130px;
-  margin: 100px;
-  display: inline-block;
-  vertical-align: top;
-  border: black;
-  border-radius: 8px;
-  color: whitesmoke;
-  text-shadow:
-		-1px -1px 0 #000,
-		1px -1px 0 #000,
-		-1px 1px 0 #000,
-    1px 1px 0 #000;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    border-style: solid;
-}
+
 
 
 .button {
@@ -152,4 +161,4 @@ transform: rotateY(180deg);
 .containerDivs {
 height: 75%;
 
-}
+}  

@@ -28,7 +28,7 @@ class Pokemon {
       populateDOM(result);
       });
     } else {
-        alert('There are no Pokemon with that ID. Choose another one.');
+        alert('There are no Pokemon with that number. Try another one.');
     }
   }) 
 
@@ -56,6 +56,7 @@ async function getAPIData (url) {
     
     
     let mainArea = document.querySelector('main')
+    let nav = document.querySelector('nav')
     // populateDOM(pokedata)
     function populateDOM(single_pokemon) {
         let pokeScene = document.createElement('div')
@@ -125,9 +126,9 @@ async function getAPIData (url) {
         let pokeOrder = document.createElement('p')
         let pokeWeight = document.createElement('p')
         let pokeHeight = document.createElement ('p')
-        pokeOrder.textContent = `Number ${data.order}`
-        pokeWeight.textContent = `Weight ${data.weight}`
-        pokeHeight.textContent = `Height ${data.height}`
+        pokeOrder.textContent = `Number: ${data.order}`
+        pokeWeight.textContent = `Weight: ${data.weight}`
+        pokeHeight.textContent = `Height: ${data.height}`
         pokeBack.appendChild(pokeOrder)
         pokeBack.appendChild(pokeWeight)
         pokeBack.appendChild(pokeHeight) 
