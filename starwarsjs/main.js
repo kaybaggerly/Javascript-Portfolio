@@ -46,7 +46,7 @@ planets.forEach((planet) => {
     let terrain = document.createElement('p')
     let climate = document.createElement('p')
     let population = document.createElement('p')
-    let planetNum = getPlanetNum(planets.url)
+    let planetNum = getPlanetNum(planet.url)
 
     name.textContent = planet.name
     pic.src = `https://starwars-visualguide.com/assets/img/planets/${planetNum}.jpg`
@@ -62,6 +62,7 @@ planets.forEach((planet) => {
     pic.setAttribute('class', 'planetPic')
 
     function getPlanetNum(planetURL) {
+        console.log(planetURL)
         let end = planetURL.lastIndexOf('/')
         let planetID = (planetURL.substring(end - 2, end))
         if (planetID.indexOf('/') !== -1) {
