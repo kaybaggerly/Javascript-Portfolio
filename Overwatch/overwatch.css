@@ -1,10 +1,83 @@
+
+*{
+  margin: 0px;
+}
+
 main {
-    display: flex;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 4rem;
-    width: 100%;
-    max-width: 1280px;
-    margin: 0 auto;
-    margin-bottom: 6rem;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 5rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+}
   
+body {
+  background: #131317;
+}
+
+#header{
+  font-family: Tahoma, Geneva, sans-serif;
+  text-align:center;
+
+}
+
+
+h1 {
+  color: whitesmoke;
+  font-size: 20px;
+}
+
+.scene {
+width: 270px;
+height: 350px;
+border: 5px solid #F8D960;
+margin: 40px 0;
+perspective: 600px; 
+border-radius: 30px 50px 30px;
+}
+
+.card {
+width: 100%;
+height: 100%;
+transition: transform 1s;
+transform-style: preserve-3d;
+cursor: pointer;
+position: relative;
+border-radius: 30px 50px 30px;
+}
+
+.pic {
+  width: 50px;
+}
+
+.card.is-flipped {
+transform: rotateY(180deg);
+}
+
+.card__face {
+position: absolute;
+width: 100%;
+height: 100%;
+line-height: inherit;
+color: whitesmoke;
+text-align: center;
+font-family: Tahoma, Geneva, sans-serif;
+font-size: 10px;
+backface-visibility: hidden;
+}
+
+.card__face--front {
+background: #202024;
+border-radius: 30px 50px 30px;
+}
+
+.card__face--back {
+background: #202024;
+transform: rotateY(180deg);
+color: whitesmoke;
+border-radius: 30px 50px 30px;
+font-size: 15px;
+}
+

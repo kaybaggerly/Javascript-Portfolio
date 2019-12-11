@@ -1,23 +1,39 @@
 (async function() {
     let data = await getAPIData('https://overwatch-api.net/api/v1/hero/');
-    let characterData = [];
-    for (const stats in data['data']) {
-        var c = new OWCharacter(stats['name'], stats['description']);
-        characterData.push(c);
-    }
-    await Promise.all(characterData);
-    populateDOM(overwatchCard)
-});
+    // add a request for second api
+    let imageData = await getAPIData('https://overwatch-api.tekrop.fr/heroes');
 
-var characterData = [];
+    for (const stats of data.data) {
+        // creating a new character
+        var character = new OWCharacter(stats['name'], stats['description']);
 
-class OWCharacter {
-    constructor(nameVar, descriptionVar) {
-      this.name = nameVar; 
-      this.description = descriptionVar;
-      this.picSource = `https://d1u1mce87gyfbn.cloudfront.net/hero/${name}/hero-select-portrait.png`
+        // finds the corresponding portraint url
+        // character.name
+        // [{ name: 'Ana', portrait: 'url' }]
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+        let characterImageData = imageData.find(o => o.name === character.name);
+        let portraitURL = characterImageData.portrait;
+        // add the character to the dom
+         populateDOM(character, portraitURL)
     }
-}
+})();
+
+// Notes:
+// called our immediately invoked function (IIF)
+//  async IIF is nice because it lets us use async/await
+// passed the right thing to populateDOM
+// in(iterates all the innumerable properties) -> of(iterates over each element in an array)
+//  only use for..in if you really want to iterate over
+//   properties of an object
+//  use for..of if you want to iterate over elements of an array
+
+    class OWCharacter {
+     constructor(nameVar, descriptionVar) {
+    this.name = nameVar; 
+    this.description = descriptionVar;
+    this.picSource = `https://d1u1mce87gyfbn.cloudfront.net/hero/${nameVar}/hero-select-portrait.png`
+     }
+    } 
 
 
 
@@ -44,7 +60,7 @@ async function getAPIData (url) {
     let mainArea = document.querySelector('main')
     let nav = document.querySelector('nav')
     // populateDOM(characterData)
-    function populateDOM(single_hero) {
+    function populateDOM(single_hero, portraitURL) {
         let heroScene = document.createElement('div')
         let heroCard = document.createElement('div')
         let heroFront = document.createElement('div')
@@ -68,8 +84,36 @@ async function getAPIData (url) {
         name.textContent = `${single_hero.name}`
      
        // pic.src = `../assets/images/${heroNum}.png`
-       pic.src = `src="https://d1u1mce87gyfbn.cloudfront.net/hero/${single_hero.name}/hero-select-portrait.png`;
+       // string.prototype.replace(regex, replaceChar)
+       //  let s = 'aBBc' 
+       //  s.replace(/B/g, 'x')
+       //    -> "axxc"
+       // /[a-z]/g < matches only lower case
+       // /[^a-z]/g < matches everything except lower case
+       // write code that:
+       //  get the lower case version of the name
+       //  remove all non-lowercase characters
+       // "d.va" -> "dva"
+       // "Lúcio" -> "lúcio" -> "Lcio"
 
+       // character name -> url
+       // https://overwatch-api.tekrop.fr/heroes
+       // make a request to that api ^
+       // [ { key: 'ana', name: 'Ana', portrait: 'url' } ]
+       // find matching character
+       // use their image
+
+
+
+
+
+        //Lowercases and removes special characters in image links
+       let lowerCaseName = single_hero.name.toLowerCase();
+       let formattedName = lowerCaseName.replace(/[^a-z]/g, '')
+       
+       
+
+       pic.src = portraitURL;
      
         heroFront.appendChild(picContainer)
         heroFront.appendChild(name)
@@ -88,8 +132,6 @@ async function getAPIData (url) {
         heroBack.setAttribute('class', 'card__face card__face--back')
         name.setAttribute('class', 'charName')
         pic.setAttribute('class', 'charPic')
-        //var heroCard = document.querySelector('.card');
-    
     
         heroCard.addEventListener( 'click', function() {
           heroCard.classList.toggle('is-flipped');
@@ -98,37 +140,13 @@ async function getAPIData (url) {
     }
     
     
-    
-    
-    //function getPokeNumber(id) {
-    //    if (id < 10) return `00${id}`
-    //    if(id > 9 && id < 100) {
-    //        return `0${id}`
-    //    } else return id
-    //}
-    
     function fillCardBack(heroBack, data) {
         let heroDescription = document.createElement('p')
-        //let heroOrder = document.createElement('p')
-        //let heroWeight = document.createElement('p')
-        //let heroHeight = document.createElement ('p')
         heroDescription.textContent = `${data.description}`
-        //heroOrder.textContent = `Number: ${data.order}`
-        //heroWeight.textContent = `Weight: ${data.weight}`
-        //heroHeight.textContent = `Height: ${data.height}`
         heroBack.appendChild(heroDescription)
-        //heroBack.appendChild(heroOrder)
-        //heroBack.appendChild(heroWeight)
-        //heroBack.appendChild(heroHeight) 
     }
     
-    
-    
-      /*  let end = charURL.lastIndexOf('/')
-        let charID = charURL.substring (end -2, end)
-        if(charID.indexOf('/') !== -1) {
-           return `00${charID.slice(1, 2)}`
-        }   else {
-            return `0${charID}`
-        }  
-    } */
+
+    function filterHeroes(simpleList, ) {
+        return simpleList.filter(senator => senator.party === partyAffiliation)
+    }
