@@ -6,6 +6,9 @@ let mainArea = document.querySelector('main')
 const allChar = people.filter(person =>person.gender == 'male' | 'female' & person.gender !== 'male' & person.gender !== 'female')
 const maleCharacters =  people.filter(person => person.gender === 'male')
 const femaleCharacters =  people.filter(person => person.gender === 'female')
+const otherChar = people.filter(person => person.gender !== 'male' & person.gender !== 'female')
+
+
 
 people.forEach((person) => {
     let personDiv = document.createElement('div')
@@ -18,6 +21,7 @@ people.forEach((person) => {
     name.textContent = person.name
     gender.textContent = person.gender
     pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
+   
     
     personDiv.className += 'starwarsCharacter';
     personDiv.appendChild(name)
@@ -45,21 +49,22 @@ planets.forEach((planet) => {
     let name = document.createElement('h1')
     let terrain = document.createElement('p')
     let climate = document.createElement('p')
-    let population = document.createElement('p')
     let planetNum = getPlanetNum(planet.url)
 
     name.textContent = planet.name
+    terrain.textContent = planet.terrain
     pic.src = `https://starwars-visualguide.com/assets/img/planets/${planetNum}.jpg`
+    pic.alt = `https://www.universetoday.com/wp-content/uploads/2009/09/bluemarble-e1452178366615.jpg`
     mainArea.appendChild(planetDiv)
     planetDiv.appendChild(name)
-    planetDiv.appendChild(pic)
     planetDiv.appendChild(terrain)
-    planetDiv.appendChild(climate)
-    planetDiv.appendChild(population)
+    planetDiv.appendChild(pic)
 
     planetDiv.setAttribute('class', 'planetDiv')
     name.setAttribute('class', 'planetName')
+    terrain.setAttribute('class', 'planetTerrain')
     pic.setAttribute('class', 'planetPic')
+    
 
     function getPlanetNum(planetURL) {
         console.log(planetURL)
@@ -90,16 +95,22 @@ allChar.forEach(character => {
         let matchedDiv = allDivs.find((oneDiv)=> {
             return oneDiv.firstChild.textContent === character.name
         })
-        matchedDiv.setAttribute('style', 'display: block')
-        matchedDiv.classList.add('animated', 'fadeIn')
+        matchedDiv.setAttribute("style", "display: block;")
 })
 maleCharacters.forEach(character =>{
     let matchedDiv = allDivs.find((oneDiv)=>{
         return oneDiv.firstChild.textContent === character.name
     })
     
-    matchedDiv.setAttribute('style', 'display:block',)
-})})
+    matchedDiv.setAttribute("style", "display:block;")
+})
+planets.forEach(planet => {
+    let matchedDiv = allDivs.find((oneDiv) => {
+       return oneDiv.firstChild.textContent === planet.name
+    })
+    matchedDiv.setAttribute("style", "display: none;")
+})
+})
 
 
 })
@@ -158,5 +169,24 @@ planetsButton.addEventListener('click', () => {
         })
         matchedDiv.setAttribute("style", "display: block;")
     })
-})
+    
+    femaleCharacters.forEach(character => {
+        let matchedDiv = allDivs.find((oneDiv) => {
+           return oneDiv.firstChild.textContent === character.name
+        })
+        matchedDiv.setAttribute("style", "display: none;")
+    })
 
+    maleCharacters.forEach(character => {
+        let matchedDiv = allDivs.find((oneDiv) => {
+            return oneDiv.firstChild.textContent === character.name
+        })
+        matchedDiv.setAttribute("style", "display: none;")
+})
+otherChar.forEach(character => {
+    let matchedDiv = allDivs.find((oneDiv) => {
+        return oneDiv.firstChild.textContent === character.name
+    })
+    matchedDiv.setAttribute("style", "display: none;")
+            })
+    })

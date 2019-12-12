@@ -5,7 +5,7 @@
 
 h1 {
     font-family: 'Star Jedi', arial;
-    color: Yellow;
+    color: black;
     font-size: 1em;
 }
 
@@ -24,41 +24,44 @@ h1 {
 
 }
 
-header {
-  display: flex;
-  justify-content: center;
-
+h2 {
+padding: 10px;
+text-align: center;
 }
 
+h2 img {
+  height: 500px;
+  width: 500px;
+}
+
+
 main {
-  /*display: grid;
-  grid-template-columns: repeat (auto-fit, minmax(320px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 2rem;
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   margin-bottom: 6rem;
-  */
   }
 
+
   button {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
      padding: 20 pz;
       border-radius: 10% / 50%;
-      background-color: Yellow;
+      background-color: #F5C800;
   }
 
   body {
-    background-image: url("../starwarsjs/space.jpg");
-    background-color: #cccccc;
     font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color:white; 
+    color: #F5C800;
     font-size: 30px;
+    border-radius: 8px;
   }
 
-
-.starwarsCharacter{
-  float:left;
-  padding: calc(10% / 6);
-  width : 30%;
+img {
+  height: 325px;
+  width: 275px;
+  border-radius: 30% / 30% / 30%/ 30%;
 }
