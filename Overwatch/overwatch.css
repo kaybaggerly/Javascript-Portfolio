@@ -30,9 +30,8 @@ h1 {
 }
 
 .scene {
-width: 270px;
-height: 370px;
-border: 4px solid #F8D960;
+width: 260px;
+height: 350px;
 margin: 40px 0;
 perspective: 600px; 
 border-radius: 30px 50px 30px;
@@ -45,11 +44,12 @@ transition: transform 1s;
 transform-style: preserve-3d;
 cursor: pointer;
 position: relative;
+border: 5px solid #F8D960;
 border-radius: 30px 50px 30px;
 }
 
 .card:hover{
-  transform: scale(1.023);
+  transform: scale(1.2);
   transition: 1s;
 }
 
@@ -82,11 +82,13 @@ border-radius: 30px 50px 30px;
 .card__face--back {
 background: #202024;
 transform: rotateY(180deg);
-color: whitesmoke;
-border-radius: 30px 50px 30px;
+border-radius: 50px 30px 50px;
+}
+
+p {
+  padding: 12px;
+  color: whitesmoke;
 font-size: 15px;
-overflow: auto;
-text-align: center;
 }
 
 

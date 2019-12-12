@@ -137,7 +137,20 @@ maleButton.addEventListener('click', () => {
         })
         matchedDiv.setAttribute("style", "display: none;")
     })
-})
+    otherChar.forEach(character => {
+        let matchedDiv = allDivs.find((oneDiv) => {
+            return oneDiv.firstChild.textContent === character.name
+        })
+        matchedDiv.setAttribute("style", "display: none;")
+                })
+                planets.forEach(planet => {
+                    let matchedDiv = allDivs.find((oneDiv) => {
+                       return oneDiv.firstChild.textContent === planet.name
+                    })
+                    matchedDiv.setAttribute("style", "display: none;")
+                })
+        })
+
 //female button
 let femaleButton = document.createElement ('button')
 femaleButton.textContent = 'Female Characters'
@@ -159,7 +172,19 @@ femaleButton.addEventListener('click', () => {
         })
         matchedDiv.setAttribute("style", "display: none;")
     })
-})
+    otherChar.forEach(character => {
+        let matchedDiv = allDivs.find((oneDiv) => {
+            return oneDiv.firstChild.textContent === character.name
+        })
+        matchedDiv.setAttribute("style", "display: none;")
+                })
+                planets.forEach(planet => {
+                    let matchedDiv = allDivs.find((oneDiv) => {
+                       return oneDiv.firstChild.textContent === planet.name
+                    })
+                    matchedDiv.setAttribute("style", "display: none;")
+                })
+        })
 
 
 //planets button
