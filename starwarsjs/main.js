@@ -54,7 +54,6 @@ planets.forEach((planet) => {
     name.textContent = planet.name
     terrain.textContent = planet.terrain
     pic.src = `https://starwars-visualguide.com/assets/img/planets/${planetNum}.jpg`
-    pic.alt = `https://www.universetoday.com/wp-content/uploads/2009/09/bluemarble-e1452178366615.jpg`
     mainArea.appendChild(planetDiv)
     planetDiv.appendChild(name)
     planetDiv.appendChild(terrain)
@@ -76,7 +75,13 @@ planets.forEach((planet) => {
             return planetID
         }
     }
+
+     pic.addEventListener('error', (event) => {
+        let badImage = event.target
+        badImage.src = '../assets/images/earth.jpg'
+      })
 })
+
 
 
 
