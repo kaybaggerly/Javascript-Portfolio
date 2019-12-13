@@ -76,13 +76,13 @@ backface-visibility: hidden;
 
 .card__face--front {
 background: #202024;
-border-radius: 30px 50px 30px;
+border-radius: 23px 43px 23px;
 }
 
 .card__face--back {
 background: #202024;
 transform: rotateY(180deg);
-border-radius: 50px 30px 50px;
+border-radius: 43px 23px 43px;
 }
 
 p {
